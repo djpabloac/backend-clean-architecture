@@ -1,4 +1,4 @@
-This is a [NodeJs](https://nodejs.org/en/) project to implement the [Clean Architecture](https://nodejs.org/en/).
+This is a [NodeJs](https://nodejs.org/en/) project to implement the [Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin Series)](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164).
 
 ## Learn More
 
