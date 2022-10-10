@@ -1,10 +1,10 @@
-This is a [NodeJs](https://nodejs.org/en/) project to implement the [Clean Architecture: A Craftsman's Guide to Software Structure and Design (Robert C. Martin Series)](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164).
+This is project to implement the [Clean Architecture - Robert C. Martin)](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) in the backend of a nodes project.
 
-## Learn More
+## Information sources
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Better Programming](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165) - learn about Clean Architecture. [Bharath](https://medium.bharath-dev.com/)
+- [Better Programming](https://betterprogramming.pub/the-clean-architecture-beginners-guide-e4b7058c1165) - [Bharath](https://medium.bharath-dev.com/)
+- [Hexagonal Architecture with Typescript in web APIs with Nodejs](https://www.youtube.com/watch?v=ds7mHECHNj0) - [Plain TV by Plain Concepts](https://www.youtube.com/c/PlainTV)
+- [Clean Architecture in Node with TypeScript](https://www.youtube.com/watch?v=497L4-LhvdM) - [Leifer Mendez](https://github.com/leifermendez)
 
 ## Getting Started
 

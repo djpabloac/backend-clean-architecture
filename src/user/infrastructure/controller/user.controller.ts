@@ -6,9 +6,6 @@ export class UserController {
 
   constructor (userUseCase: UserUseCase) {
     this.userUseCase = userUseCase
-    this.getById = this.getById.bind(this)
-    this.create = this.create.bind(this)
-    this.list = this.list.bind(this)
   }
 
   public getById = async({ params }: Request, res: Response): Promise<Response> => {

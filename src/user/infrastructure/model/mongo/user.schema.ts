@@ -1,15 +1,14 @@
 import { Schema, model } from 'mongoose'
 
 const UserSchema = new Schema({
-  uuid: { type: String, trim: true },
-  name: { type: String, trim: true, require: true },
-  email: { type: String, trim: true, require: true, lowercase: true },
-  photo: { type: String, trim: true },
-  status: { type: String, trim: true }
+  email : { lowercase: true, require: true, trim: true, type: String },
+  name  : { require: true, trim: true, type: String },
+  photo : { trim: true, type: String },
+  status: { trim: true, type: String },
+  uuid  : { trim: true, type: String }
 }, {
-  _id: false,
-  versionKey: false,
-  timestamps: true
+  timestamps: true,
+  versionKey: false
 })
 
 const UserModel = model('user', UserSchema)
