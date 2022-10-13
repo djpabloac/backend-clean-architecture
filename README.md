@@ -22,7 +22,7 @@ Open [http://localhost:5010](http://localhost:5010) with your browser to see the
 
 ## Environment Variables
 
-To run this project, you will need to add the following environment variables to your .env file
+To run this project, you will need to add the following environment variables to your .env file.
 
 `PORT`
 
