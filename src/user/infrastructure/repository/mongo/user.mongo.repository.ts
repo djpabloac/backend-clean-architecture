@@ -16,7 +16,7 @@ export class UserMongoRepository implements UserRepository {
   }
 
   public findById = async (uuid: string) => {
-    const user = UserModel.findById(uuid).lean()
+    const user = UserModel.findOne({ uuid }).lean()
 
     return user
   }
