@@ -1,6 +1,6 @@
-import { UserEntity } from '../../../domain/user.entity'
-import { UserRepository } from '../../../domain/user.repository'
-import UserModel from '../../model/mongo/user.schema'
+import { UserEntity } from '../../../domain/userEntity'
+import { UserRepository } from '../../../domain/userRepository'
+import UserModel from '../../model/mongo/userSchema'
 
 export class UserMongoRepository implements UserRepository {
   public create = async (user: UserEntity) => {

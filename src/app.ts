@@ -1,7 +1,8 @@
+/* eslint-disable no-console */
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import userRoute from './user/infrastructure/route/user.route'
+import userRoute from './user/infrastructure/route/userRoute'
 import dbInit from './user/infrastructure/model/mongo/config'
 
 const app = express()

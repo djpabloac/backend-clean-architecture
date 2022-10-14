@@ -1,6 +1,6 @@
-import { UserEntityInput } from '../domain/user.entity'
-import { UserRepository } from '../domain/user.repository'
-import { UserValue } from '../domain/user.value'
+import { UserEntityInput } from '../domain/userEntity'
+import { UserRepository } from '../domain/userRepository'
+import { UserValue } from '../domain/userValue'
 
 export class UserUseCase {
   private readonly userRepository: UserRepository

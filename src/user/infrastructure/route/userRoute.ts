@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { UserUseCase } from '../../application/userUseCase'
-import { UserController } from '../controller/user.controller'
+import { UserController } from '../controller/userController'
 import { UserMockRepository, UserMongoRepository } from '../repository';
 import { TypeDriveWithDataBase } from './config';
 

@@ -1,5 +1,5 @@
-import { UserMockRepository } from "./mock/user.mock.repository"
-import { UserMongoRepository } from "./mongo/user.mongo.repository"
+import { UserMockRepository } from "./mock/userMockRepository"
+import { UserMongoRepository } from "./mongo/userMongoRepository"
 
 export {
   UserMockRepository,

@@ -1,4 +1,4 @@
-import { UserEntity } from './user.entity'
+import { UserEntity } from './userEntity'
 
 export interface UserRepository {
   findById: (uuid: string) => Promise<UserEntity | unknown>
