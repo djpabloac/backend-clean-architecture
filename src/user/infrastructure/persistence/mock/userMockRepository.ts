@@ -1,8 +1,8 @@
-import { UserEntity } from '../../../domain/userEntity'
-import { UserRepository } from '../../../domain/userRepository'
-import { USERS_MOCK } from '../../model/mock/userSchema'
+import UserEntity from '../../../domain/userEntity'
+import UserRepository from '../../../domain/userRepository'
+import { USERS_MOCK } from './userSchema'
 
-export class UserMockRepository implements UserRepository {
+export default class UserMockRepository implements UserRepository {
   async save (user: UserEntity) {
     USERS_MOCK.push(user)
 

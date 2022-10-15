@@ -1,7 +1,7 @@
 import { v4 as uuid } from 'uuid'
-import { UserEntity, UserEntityInput } from './userEntity'
+import UserEntity, { UserEntityInput } from './userEntity'
 
-export class UserValue implements UserEntity {
+export default class UserValue implements UserEntity {
   uuid: string
   name: string
   email: string

@@ -1,8 +1,8 @@
 import { UserEntityInput } from '../domain/userEntity'
-import { UserRepository } from '../domain/userRepository'
-import { UserValue } from '../domain/userValue'
+import UserRepository from '../domain/userRepository'
+import UserValue from '../domain/userValue'
 
-export class UserUseCase {
+export default class UserUseCase {
   private readonly userRepository: UserRepository
 
   constructor (userRepository: UserRepository) {

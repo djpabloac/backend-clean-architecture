@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { UserUseCase } from '../../application/userUseCase'
+import UserUseCase from '../../application/userUseCase'
 
-export class UserController {
+export default class UserController {
   private readonly userUseCase: UserUseCase
 
   constructor (userUseCase: UserUseCase) {
@@ -21,7 +21,7 @@ export class UserController {
     }
   }
 
-  public create = async({ body }: Request, res: Response): Promise<Response> => {
+  public save = async({ body }: Request, res: Response): Promise<Response> => {
     try {
       const user = await this.userUseCase.save(body)
 
@@ -33,7 +33,7 @@ export class UserController {
     }
   }
 
-  public list = async(_: Request, res: Response): Promise<Response> => {
+  public getAll = async(_: Request, res: Response): Promise<Response> => {
     try {
       const users = await this.userUseCase.getAll()
 

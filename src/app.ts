@@ -2,20 +2,23 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import userRoute from './user/infrastructure/route/userRoute'
-import dbInit from './user/infrastructure/model/mongo/config'
+import { Application } from './shared/config'
+import IConnection from './shared/persistence/connectionInterface'
+import { ConnectionFactory, PersistenceType } from './shared/persistence'
+import userRoute from './user/infrastructure/http/userRoute'
 
+// Create server
 const app = express()
 app.use(cors())
 app.use(express.json())
 
-const PORT = process.env.PORT ?? '3001'
-
-app.get('/ping', (_, res) => {
-  res.send('pong')
-})
-
+// Adding route the serve
 app.use(userRoute)
-dbInit().then().catch(() => console.log('DB off'))
 
+// Listen server
+const PORT = Application.port
 app.listen(PORT, () => console.log(`Server http://localhost:${PORT}`))
+
+// Connections persistence
+const connection: IConnection = ConnectionFactory.createConnectionType(PersistenceType.Mongo)
+connection.connect()

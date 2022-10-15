@@ -1,6 +1,6 @@
 type UserStatusType = 'active' | 'inactive'
 
-export interface UserEntity {
+export default interface UserEntity {
   uuid: string
   name: string
   email: string

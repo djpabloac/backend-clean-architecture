@@ -1,8 +1,8 @@
-import { UserEntity } from '../../../domain/userEntity'
-import { UserRepository } from '../../../domain/userRepository'
-import UserModel from '../../model/mongo/userSchema'
+import UserEntity from '../../../domain/userEntity'
+import UserRepository from '../../../domain/userRepository'
+import UserModel from './userSchema'
 
-export class UserMongoRepository implements UserRepository {
+export default class UserMongoRepository implements UserRepository {
   public save = async (user: UserEntity) => {
     const userCreated = await UserModel.create(user)
 
