@@ -5,7 +5,10 @@ import cors from 'cors'
 import { Application } from './shared/config'
 import IConnection from './shared/persistence/connectionInterface'
 import { ConnectionFactory, PersistenceType } from './shared/persistence'
-import userRoute from './user/infrastructure/http/userRoute'
+import UserRoute from './user/infrastructure/http/userRoute'
+
+// Select persistence
+const persistenceType: PersistenceType = PersistenceType.Mongo
 
 // Create server
 const app = express()
@@ -13,12 +16,12 @@ app.use(cors())
 app.use(express.json())
 
 // Adding route the serve
-app.use(userRoute)
+app.use(UserRoute.createRouterByPersistenceType(persistenceType))
 
 // Listen server
 const PORT = Application.port
 app.listen(PORT, () => console.log(`Server http://localhost:${PORT}`))
 
 // Connections persistence
-const connection: IConnection = ConnectionFactory.createConnectionType(PersistenceType.Mongo)
+const connection: IConnection = ConnectionFactory.createConnectionByPersistenceType(persistenceType)
 connection.connect()
