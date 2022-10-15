@@ -1,11 +1,9 @@
 import { Router } from 'express'
-import { PersistenceType } from '../../../../shared/persistence';
+import { PersistenceType } from '../../../../shared/infrastructure/persistence';
 import { UserMockRepository, UserMongoRepository } from '../../persistence';
 import UserRepository from '../../../domain/userRepository';
 import UserUseCase from '../../../application/userUseCase'
 import UserController from './userController'
-
-const apiName = 'user'
 
 export default class UserRouter {
   private static getRoute(userRepository: UserRepository):Router {
@@ -13,9 +11,9 @@ export default class UserRouter {
     const userController = new UserController(userUseCase)
 
     const userRoute = Router();
-    userRoute.get(`/${apiName}/:uuid`, userController.getById)
-    userRoute.post(`/${apiName}`, userController.save)
-    userRoute.get(`/${apiName}`, userController.getAll)
+    userRoute.get(`/:uuid`, userController.getById)
+    userRoute.post('', userController.save)
+    userRoute.get('', userController.getAll)
 
     return userRoute
   }
