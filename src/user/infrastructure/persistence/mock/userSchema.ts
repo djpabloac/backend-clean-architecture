@@ -1,4 +1,4 @@
-import { UserEntity } from "../../../domain/user.entity";
+import UserEntity from "../../../domain/userEntity";
 
 export const USERS_MOCK: UserEntity[] = [
   {
@@ -6,13 +6,13 @@ export const USERS_MOCK: UserEntity[] = [
     name  : 'Pepe Perez',
     photo : '',
     status: 'active',
-    uuid  : 'aaaaaaaaaaaa'
+    uuid  : '5eaf7ab7-3782-4ec1-8b68-87da25292b71'
   },
   {
     email : 'gabe@mock.com',
     name  : 'Gabo Aldave',
     photo : '',
     status: 'active',
-    uuid  : 'bbbbbbbbbbbb'
+    uuid  : '5eaf7ab7-3782-4ec1-8b68-87da25292b23'
   }
 ]

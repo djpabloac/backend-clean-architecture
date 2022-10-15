@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
-import { UserUseCase } from '../../application/userUseCase'
+import UserUseCase from '../../application/userUseCase'
 
-export class UserController {
+export default class UserController {
   private readonly userUseCase: UserUseCase
 
   constructor (userUseCase: UserUseCase) {
@@ -11,7 +11,7 @@ export class UserController {
   public getById = async({ params }: Request, res: Response): Promise<Response> => {
     try {
       const uuid: string = (params.uuid ?? '') as string
-      const user = await this.userUseCase.findById(uuid)
+      const user = await this.userUseCase.getById(uuid)
 
       return res.json({ data: user, success: true })
     } catch (error: any) {
@@ -21,9 +21,9 @@ export class UserController {
     }
   }
 
-  public create = async({ body }: Request, res: Response): Promise<Response> => {
+  public save = async({ body }: Request, res: Response): Promise<Response> => {
     try {
-      const user = await this.userUseCase.create(body)
+      const user = await this.userUseCase.save(body)
 
       return res.json({ data: user, success: true })
     } catch (error: any) {
@@ -33,9 +33,9 @@ export class UserController {
     }
   }
 
-  public list = async(_: Request, res: Response): Promise<Response> => {
+  public getAll = async(_: Request, res: Response): Promise<Response> => {
     try {
-      const users = await this.userUseCase.list()
+      const users = await this.userUseCase.getAll()
 
       return res.json({ data: users, success: true })
     } catch (error: any) {
