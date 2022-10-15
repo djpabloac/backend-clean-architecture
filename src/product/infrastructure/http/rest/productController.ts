@@ -1,17 +1,17 @@
 import { Request, Response } from 'express'
-import UserUseCase from '../../application/userUseCase'
+import ProductUseCase from '../../../application/productUseCase'
 
-export default class UserController {
-  private readonly userUseCase: UserUseCase
+export default class ProductController {
+  private readonly productUseCase: ProductUseCase
 
-  constructor (userUseCase: UserUseCase) {
-    this.userUseCase = userUseCase
+  constructor (productUseCase: ProductUseCase) {
+    this.productUseCase = productUseCase
   }
 
   public getById = async({ params }: Request, res: Response): Promise<Response> => {
     try {
       const uuid: string = (params.uuid ?? '') as string
-      const user = await this.userUseCase.getById(uuid)
+      const user = await this.productUseCase.getById(uuid)
 
       return res.json({ data: user, success: true })
     } catch (error: any) {
@@ -23,7 +23,7 @@ export default class UserController {
 
   public save = async({ body }: Request, res: Response): Promise<Response> => {
     try {
-      const user = await this.userUseCase.save(body)
+      const user = await this.productUseCase.save(body)
 
       return res.json({ data: user, success: true })
     } catch (error: any) {
@@ -35,7 +35,7 @@ export default class UserController {
 
   public getAll = async(_: Request, res: Response): Promise<Response> => {
     try {
-      const users = await this.userUseCase.getAll()
+      const users = await this.productUseCase.getAll()
 
       return res.json({ data: users, success: true })
     } catch (error: any) {

@@ -5,8 +5,8 @@ import cors from 'cors'
 import { Application } from './shared/config'
 import IConnection from './shared/persistence/connectionInterface'
 import { ConnectionFactory, PersistenceType } from './shared/persistence'
-import UserRoute from './user/infrastructure/http/userRoute'
-import ProductRoute from './product/infrastructure/http/productRoute'
+import UserRoute from './user/infrastructure/http/rest/userRoute'
+import ProductRoute from './product/infrastructure/http/rest/productRoute'
 
 // Select persistence
 const persistenceType: PersistenceType = PersistenceType.Mongo
@@ -17,8 +17,8 @@ app.use(cors())
 app.use(express.json())
 
 // Adding route the serve
-app.use(UserRoute.createRouterByPersistenceType(persistenceType))
-app.use(ProductRoute.createRouterByPersistenceType(persistenceType))
+app.use(UserRoute.buildRoute(persistenceType))
+app.use(ProductRoute.buildRoute(persistenceType))
 
 // Listen server
 const PORT = Application.port
