@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
-import { Application } from "../../config";
+
+import { Application } from "../../../config";
 import IConnection from "../connectionInterface";
 
 export default class ConnectionMock implements IConnection {

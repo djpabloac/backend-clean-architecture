@@ -1,4 +1,4 @@
-This is project to implement the [Clean Architecture - Robert C. Martin)](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) in the backend of a nodes project.
+This is project to implement the [Clean Architecture - Robert C. Martin](https://www.amazon.com/Clean-Architecture-Craftsmans-Software-Structure/dp/0134494164) in the backend of a nodes project.
 
 ## Information sources
 
@@ -26,7 +26,9 @@ To run this project, you will need to add the following environment variables to
 
 `PORT`
 
-`CONNECTION_DATABASE_MONGO`
+`MONGO_CONNECTION`
+
+`MONGO_NAME`
 
 
 ## Authors
