@@ -6,6 +6,7 @@ import { Application } from './shared/config'
 import IConnection from './shared/persistence/connectionInterface'
 import { ConnectionFactory, PersistenceType } from './shared/persistence'
 import UserRoute from './user/infrastructure/http/userRoute'
+import ProductRoute from './product/infrastructure/http/productRoute'
 
 // Select persistence
 const persistenceType: PersistenceType = PersistenceType.Mongo
@@ -17,6 +18,7 @@ app.use(express.json())
 
 // Adding route the serve
 app.use(UserRoute.createRouterByPersistenceType(persistenceType))
+app.use(ProductRoute.createRouterByPersistenceType(persistenceType))
 
 // Listen server
 const PORT = Application.port
