@@ -1,16 +1,22 @@
 import { Schema, model } from 'mongoose'
+import ProductEntity, { ProductStatus } from '../../../domain/productEntity'
+
+const ProductStatusEnums = [
+  ProductStatus.Active,
+  ProductStatus.Inactive
+]
 
 const ProductSchema = new Schema({
-  description: { require: true, trim: true, type: String },
-  name       : { require: true, trim: true, type: String },
-  photo      : { trim: true, type: String },
-  status     : { trim: true, type: String },
-  uuid       : { trim: true, type: String }
+  description: { required: true, trim: true, type: String },
+  name       : { required: true, trim: true, type: String },
+  photo      : { default: '', type: String },
+  status     : { default: ProductStatus.Active, enum: ProductStatusEnums, type: String },
+  uuid       : { required: true, type: String }
 }, {
   timestamps: true,
   versionKey: false
 })
 
-const ProductModel = model('product', ProductSchema)
+const ProductModel = model<ProductEntity>('product', ProductSchema)
 
 export default ProductModel

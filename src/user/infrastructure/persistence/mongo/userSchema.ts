@@ -1,16 +1,23 @@
 import { Schema, model } from 'mongoose'
+import UserEntity, { UserStatus } from '../../../domain/userEntity'
+
+const UserStatusEnums = [
+  UserStatus.Active,
+  UserStatus.Inactive
+]
 
 const UserSchema = new Schema({
-  email : { lowercase: true, require: true, trim: true, type: String },
-  name  : { require: true, trim: true, type: String },
-  photo : { trim: true, type: String },
-  status: { trim: true, type: String },
-  uuid  : { trim: true, type: String }
+  email   : { lowercase: true, required: true, trim: true, type: String },
+  name    : { required: true, trim: true, type: String },
+  password: { required: true, trim: true, type: String },
+  photo   : { default: '', type: String },
+  status  : { default: UserStatus.Active, enum: UserStatusEnums, type: String },
+  uuid    : { required: true, type: String }
 }, {
   timestamps: true,
   versionKey: false
 })
 
-const UserModel = model('user', UserSchema)
+const UserModel = model<UserEntity>('user', UserSchema)
 
 export default UserModel

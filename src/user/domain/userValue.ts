@@ -1,18 +1,20 @@
 import { v4 as uuid } from 'uuid'
-import UserEntity, { UserEntityInput } from './userEntity'
+import UserEntity, { UserInputEntity, UserStatus } from './userEntity'
 
 export default class UserValue implements UserEntity {
   uuid: string
   name: string
+  password: string
   email: string
   photo: string
-  status: 'active' | 'inactive'
+  status: UserStatus
 
-  constructor (userInput: UserEntityInput) {
+  constructor (userInput: UserInputEntity) {
     this.name = userInput.name
     this.email = userInput.email
     this.photo = userInput.photo
+    this.password = userInput.password
     this.uuid = uuid()
-    this.status = 'active'
+    this.status = UserStatus.Active
   }
 }

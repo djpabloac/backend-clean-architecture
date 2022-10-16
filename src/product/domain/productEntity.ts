@@ -1,11 +1,14 @@
-type ProductStatusType = 'active' | 'inactive'
+export enum ProductStatus {
+  Active = 'ACTIVE',
+  Inactive = 'INACTIVE'
+}
 
 export default interface ProductEntity {
   uuid: string
   name: string
   description: string
   photo: string
-  status: ProductStatusType
+  status: ProductStatus
 }
 
 export type ProductEntityInput = Pick<ProductEntity, 'name' | 'description' | 'photo'>

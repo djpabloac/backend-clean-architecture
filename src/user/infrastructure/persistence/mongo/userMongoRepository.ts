@@ -12,11 +12,17 @@ export default class UserMongoRepository implements UserRepository {
   public getAll = async () => {
     const users = await UserModel.find({}).lean()
 
-    return users as UserEntity[]
+    return users
+  }
+
+  public getByEmail = async (email: string) => {
+    const user = await UserModel.findOne({ email }).lean()
+
+    return user
   }
 
   public getById = async (uuid: string) => {
-    const user = UserModel.findOne({ uuid }).lean()
+    const user = await UserModel.findOne({ uuid }).lean()
 
     return user
   }

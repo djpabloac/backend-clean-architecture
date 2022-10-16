@@ -1,4 +1,4 @@
-import { UserEntityInput } from '../domain/userEntity'
+import { UserInputEntity } from '../domain/userEntity'
 import UserRepository from '../domain/userRepository'
 import UserValue from '../domain/userValue'
 
@@ -9,7 +9,7 @@ export default class UserUseCase {
     this.userRepository = userRepository
   }
 
-  public save = async (userInput: UserEntityInput) => {
+  public save = async (userInput: UserInputEntity) => {
     const userValue = new UserValue(userInput)
     const userSave = await this.userRepository.save(userValue)
 

@@ -1,11 +1,17 @@
-type UserStatusType = 'active' | 'inactive'
+export enum UserStatus {
+  Active = 'ACTIVE',
+  Inactive = 'INACTIVE'
+}
 
 export default interface UserEntity {
   uuid: string
   name: string
+  password: string
   email: string
   photo: string
-  status: UserStatusType
+  status: UserStatus
 }
 
-export type UserEntityInput = Pick<UserEntity, 'name' | 'email' | 'photo'>
+export type UserInputEntity = Pick<UserEntity, 'name' | 'email' | 'password' | 'photo'>
+
+export type UserLoginEntity = Pick<UserEntity, 'email' | 'password'>
