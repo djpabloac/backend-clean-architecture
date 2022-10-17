@@ -1,4 +1,8 @@
 export const Application = {
+  bcrypt: {
+    salt  : 8,
+    secret: process.env.BCRYPT_SECRET ?? ''
+  },
   connection: {
     mock: {
       name: 'Mock'
