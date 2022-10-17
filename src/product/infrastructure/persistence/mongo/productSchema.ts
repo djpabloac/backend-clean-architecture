@@ -11,7 +11,7 @@ const ProductSchema = new Schema({
   name       : { required: true, trim: true, type: String },
   photo      : { default: '', type: String },
   status     : { default: ProductStatus.Active, enum: ProductStatusEnums, type: String },
-  uuid       : { required: true, type: String }
+  uuid       : { required: true, type: String, unique: true }
 }, {
   timestamps: true,
   versionKey: false

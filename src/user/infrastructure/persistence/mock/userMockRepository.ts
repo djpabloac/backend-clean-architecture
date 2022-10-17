@@ -13,6 +13,10 @@ export default class UserMockRepository implements UserRepository {
     return users
   }
 
+  public existsByEmail = async (email: string) => {
+    return users.some(item => item.email === email)
+  }
+
   public getByEmail = async (email: string) => {
     const user = users.find(item => item.email === email)
     if(!user) return null
