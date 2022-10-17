@@ -1,20 +1,32 @@
 import UserEntity from '../../../domain/userEntity'
 import UserRepository from '../../../domain/userRepository'
-import { USERS_MOCK } from './userSchema'
+import { users } from './userSchema'
 
 export default class UserMockRepository implements UserRepository {
-  async save (user: UserEntity) {
-    USERS_MOCK.push(user)
+  public save = async (user: UserEntity) => {
+    users.push(user)
 
     return user
   }
 
-  async getAll (): Promise<UserEntity[]> {
-    return USERS_MOCK
+  public getAll = async () => {
+    return users
   }
 
-  async getById (uuid: string) {
-    const user = USERS_MOCK.find(item => item.uuid === uuid)
+  public existsByEmail = async (email: string) => {
+    return users.some(item => item.email === email)
+  }
+
+  public getByEmail = async (email: string) => {
+    const user = users.find(item => item.email === email)
+    if(!user) return null
+
+    return user
+  }
+
+  public getById = async (uuid: string) => {
+    const user = users.find(item => item.uuid === uuid)
+    if(!user) return null
 
     return user
   }
