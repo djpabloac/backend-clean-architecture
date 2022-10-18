@@ -1,2 +1,2 @@
 export {}
-require('../src/shared/infrastructure/http/express')
+require('../src/shared/infrastructure/express')

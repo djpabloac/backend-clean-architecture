@@ -2,9 +2,9 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
-import { Application } from '../../../config'
-import IConnection from '../../persistence/connectionInterface'
-import { ConnectionFactory, PersistenceType } from '../../persistence'
+import { Application } from '../../config'
+import IConnection from '../persistence/connectionInterface'
+import { ConnectionFactory, PersistenceType } from '../persistence'
 import apiRoute from './route'
 
 // Select persistence
@@ -16,7 +16,7 @@ app.use(cors())
 app.use(express.json())
 
 // Adding route the serve
-app.use('/api/v1', apiRoute)
+app.use('/api/v1', apiRoute.buildRoute(persistenceType))
 
 // Listen server
 const PORT = Application.port
