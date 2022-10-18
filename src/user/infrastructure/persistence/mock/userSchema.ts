@@ -1,4 +1,4 @@
-import UserEntity, { UserStatus } from "../../../domain/userEntity";
+import UserEntity, { UserStatus } from '../../../domain/userEntity'
 
 export const users: UserEntity[] = [
   {

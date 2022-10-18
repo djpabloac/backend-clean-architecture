@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import ErrorEntity from '../../../../shared/domain/Error'
 import ProductUseCase from '../../../application/productUseCase'
 
 export default class ProductController {
@@ -14,10 +15,10 @@ export default class ProductController {
       const user = await this.productUseCase.getById(uuid)
 
       return res.json({ data: user, success: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: error.message, success: false })
+      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
     }
   }
 
@@ -26,10 +27,10 @@ export default class ProductController {
       const user = await this.productUseCase.save(body)
 
       return res.json({ data: user, success: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: error.message, success: false })
+      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
     }
   }
 
@@ -38,10 +39,10 @@ export default class ProductController {
       const users = await this.productUseCase.getAll()
 
       return res.json({ data: users, success: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: error.message, success: false })
+      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
     }
   }
 }

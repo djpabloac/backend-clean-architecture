@@ -14,7 +14,7 @@ export default class UserMockRepository implements ProductRepository {
   }
 
   public getById = async (uuid: string) => {
-    const product = products.find(item => item.uuid === uuid)
+    const product = products.find((item) => item.uuid === uuid)
     if(!product) return null
 
     return product

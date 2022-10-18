@@ -13,9 +13,9 @@ export default class UserUseCase {
   }
 
   private validate = async (userInput: UserInputEntity) => {
-    if (!userInput.name) throw new Error("Name is required");
-    if (!userInput.email) throw new Error("Email is required");
-    if (!userInput.password) throw new Error("Password is required");
+    if (!userInput.name) throw new Error('Name is required')
+    if (!userInput.email) throw new Error('Email is required')
+    if (!userInput.password) throw new Error('Password is required')
 
     const duplicateEmail = await this.userRepository.existsByEmail(userInput.email)
     if(duplicateEmail) throw new Error('Duplicate email')

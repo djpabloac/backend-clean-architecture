@@ -1,7 +1,7 @@
-import IConnection from "./connectionInterface";
-import { PersistenceType } from "./enums/persistenceType";
-import ConnectionMock from "./connection-types/mock";
-import ConnectionMongo from "./connection-types/mongo";
+import IConnection from './connectionInterface'
+import { PersistenceType } from './enums/persistenceType'
+import ConnectionMock from './connection-types/mock'
+import ConnectionMongo from './connection-types/mongo'
 
 export default class ConnectionFactory {
   public static createConnectionByPersistenceType(persistenceType: PersistenceType): IConnection {
@@ -11,6 +11,6 @@ export default class ConnectionFactory {
     if(persistenceType === PersistenceType.Mock)
       return new ConnectionMock()
 
-    throw new Error("Invalid connection type.");
+    throw new Error('Invalid connection type.')
   }
 }

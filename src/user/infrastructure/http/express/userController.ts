@@ -1,4 +1,5 @@
 import { Request, Response } from 'express'
+import ErrorEntity from '../../../../shared/domain/Error'
 import UserUseCase from '../../../application/userUseCase'
 
 export default class UserController {
@@ -14,10 +15,10 @@ export default class UserController {
       const user = await this.userUseCase.getById(uuid)
 
       return res.json({ data: user, success: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: error.message, success: false })
+      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
     }
   }
 
@@ -26,10 +27,10 @@ export default class UserController {
       const user = await this.userUseCase.save(body)
 
       return res.json({ data: user, success: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: error.message, success: false })
+      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
     }
   }
 
@@ -38,10 +39,10 @@ export default class UserController {
       const users = await this.userUseCase.getAll()
 
       return res.json({ data: users, success: true })
-    } catch (error: any) {
+    } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: error.message, success: false })
+      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
     }
   }
 }

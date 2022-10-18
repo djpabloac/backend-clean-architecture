@@ -1,7 +1,7 @@
 import { Router } from 'express'
-import { PersistenceType } from '../../../../shared/infrastructure/persistence';
-import { UserMockRepository, UserMongoRepository } from '../../persistence';
-import UserRepository from '../../../domain/userRepository';
+import { PersistenceType } from '../../../../shared/infrastructure/persistence'
+import { UserMockRepository, UserMongoRepository } from '../../persistence'
+import UserRepository from '../../../domain/userRepository'
 import UserUseCase from '../../../application/userUseCase'
 import UserController from './userController'
 
@@ -10,8 +10,8 @@ export default class UserRouter {
     const userUseCase = new UserUseCase(userRepository)
     const userController = new UserController(userUseCase)
 
-    const userRoute = Router();
-    userRoute.get(`/:uuid`, userController.getById)
+    const userRoute = Router()
+    userRoute.get('/:uuid', userController.getById)
     userRoute.post('', userController.save)
     userRoute.get('', userController.getAll)
 
@@ -25,7 +25,7 @@ export default class UserRouter {
     if(persistenceType === PersistenceType.Mock)
       return this.getRoute(new UserMockRepository())
 
-    throw new Error("Invalid persistence type.");
+    throw new Error('Invalid persistence type.')
   }
 }
 

@@ -1,4 +1,4 @@
-import ProductEntity, { ProductStatus } from "../../../domain/productEntity";
+import ProductEntity, { ProductStatus } from '../../../domain/productEntity'
 
 export const products: ProductEntity[] = [
   {

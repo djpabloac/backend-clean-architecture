@@ -1,16 +1,16 @@
 import { Router } from 'express'
-import { PersistenceType } from '../../../../shared/infrastructure/persistence';
-import ProductUseCase from '../../../application/productUseCase';
-import ProductRepository from '../../../domain/productRepository';
-import { ProductMockRepository, ProductMongoRepository } from '../../persistence';
-import ProductController from './productController';
+import { PersistenceType } from '../../../../shared/infrastructure/persistence'
+import ProductUseCase from '../../../application/productUseCase'
+import ProductRepository from '../../../domain/productRepository'
+import { ProductMockRepository, ProductMongoRepository } from '../../persistence'
+import ProductController from './productController'
 
 export default class ProductRouter {
   private static getRoute(productRepository: ProductRepository):Router {
     const productUseCase = new ProductUseCase(productRepository)
     const productController = new ProductController(productUseCase)
 
-    const userRoute = Router();
+    const userRoute = Router()
     userRoute.get('/:uuid', productController.getById)
     userRoute.post('', productController.save)
     userRoute.get('', productController.getAll)
@@ -25,7 +25,7 @@ export default class ProductRouter {
     if(persistenceType === PersistenceType.Mock)
       return this.getRoute(new ProductMockRepository())
 
-    throw new Error("Invalid persistence type.");
+    throw new Error('Invalid persistence type.')
   }
 }
 

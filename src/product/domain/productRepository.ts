@@ -1,4 +1,4 @@
-import ProductEntity from "./productEntity"
+import ProductEntity from './productEntity'
 
 export default interface ProductRepository {
   save: (product: ProductEntity) => Promise<ProductEntity>
