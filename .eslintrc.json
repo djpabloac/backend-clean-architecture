@@ -17,17 +17,20 @@
         "sort-keys-fix"
     ],
     "rules": {
+        "arrow-parens": ["error", "always"],
         "arrow-spacing": "error",
-        "comma-dangle": [2, "never"],
+        "comma-dangle": ["error", "never"],
         "comma-style": ["error", "last"],
         "comma-spacing": ["error", {"before": false, "after": true}],
-        "indent": [2, 2, { "SwitchCase": 1 }],
+        "indent": ["error", 2, { "SwitchCase": 1 }],
         "no-console": "error",
         "no-trailing-spaces": "error",
-        "space-before-blocks": [2, "always"],
-        "space-in-parens": [2, "never"],
+        "quotes": ["error", "single", { "avoidEscape": true }],
+        "semi": ["error", "never"],
+        "space-before-blocks": ["error", "always"],
+        "space-in-parens": ["error", "never"],
         "sort-keys-fix/sort-keys-fix": "error",
-        "space-infix-ops": 2,
+        "space-infix-ops": "error",
         "key-spacing": ["error", { "align": "colon" }]
     }
 }

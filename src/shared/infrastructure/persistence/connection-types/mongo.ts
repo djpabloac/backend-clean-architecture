@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import { connect } from 'mongoose'
-import { Application } from "../../../config";
-import IConnection from "../connectionInterface";
+import { Application } from '../../../config'
+import IConnection from '../connectionInterface'
 
 export default class ConnectionMongo implements IConnection {
   async connect(): Promise<void> {

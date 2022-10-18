@@ -1,6 +1,6 @@
-import { ProductEntityInput } from "../domain/productEntity";
-import ProductRepository from "../domain/productRepository";
-import ProductValue from "../domain/productValue";
+import { ProductEntityInput } from '../domain/productEntity'
+import ProductRepository from '../domain/productRepository'
+import ProductValue from '../domain/productValue'
 
 export default class ProductUseCase {
   private readonly productRepository: ProductRepository
@@ -15,7 +15,7 @@ export default class ProductUseCase {
 
     if (!productSave) throw new Error('Product not found')
 
-    return productSave;
+    return productSave
   }
 
   public getById = async (uuid: string) => {

@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "scripts": {
     "tsc": "tsc",
-    "lint": "eslint --ignore-path .gitignore --ext .ts --fix",
+    "lint": "eslint --ignore-path .gitignore --fix .",
     "restful:prod": "NODE_ENV=production node ./dist/bin/restful.js",
     "restful:dev": "NODE_ENV=development ts-node-dev ./bin/restful.ts"
   },

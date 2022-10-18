@@ -1,6 +1,6 @@
-import ProductEntity from "../../../domain/productEntity";
-import ProductRepository from "../../../domain/productRepository";
-import ProductModel from "./productSchema";
+import ProductEntity from '../../../domain/productEntity'
+import ProductRepository from '../../../domain/productRepository'
+import ProductModel from './productSchema'
 
 
 export default class ProductMongoRepository implements ProductRepository {

@@ -1,9 +1,9 @@
 import bcrypt from 'bcrypt'
-import { Application } from '../../config';
+import { Application } from '../../config'
 
 export default class Bcrypt {
-  secret: string;
-  salt: number;
+  secret: string
+  salt: number
 
   constructor() {
     this.secret = Application.bcrypt.secret
