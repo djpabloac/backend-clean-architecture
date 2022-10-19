@@ -1,11 +1,12 @@
 import { Request, Response } from 'express'
-import ErrorEntity from '../../../shared/domain/Error'
+import ErrorController from '../../../shared/infrastructure/express/controller/ErrorController'
 import ProductUseCase from '../../application/productUseCase'
 
-export default class ProductController {
+export default class ProductController extends ErrorController {
   private readonly productUseCase: ProductUseCase
 
   constructor (productUseCase: ProductUseCase) {
+    super()
     this.productUseCase = productUseCase
   }
 
@@ -18,7 +19,7 @@ export default class ProductController {
     } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
+      return res.json({ message: this.getMessageByError(error), success: false })
     }
   }
 
@@ -30,7 +31,7 @@ export default class ProductController {
     } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
+      return res.json({ message: this.getMessageByError(error), success: false })
     }
   }
 
@@ -42,7 +43,7 @@ export default class ProductController {
     } catch (error: unknown) {
       res.status(500)
 
-      return res.json({ message: ErrorEntity.getMessageByError(error), success: false })
+      return res.json({ message: this.getMessageByError(error), success: false })
     }
   }
 }
