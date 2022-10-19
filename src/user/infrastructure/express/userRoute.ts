@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import { PersistenceType } from '../../../../shared/infrastructure/persistence'
-import { UserMockRepository, UserMongoRepository } from '../../persistence'
-import UserRepository from '../../../domain/userRepository'
-import UserUseCase from '../../../application/userUseCase'
+import { PersistenceType } from '../../../shared/infrastructure/persistence'
+import { UserMockRepository, UserMongoRepository } from '../persistence'
+import UserRepository from '../../domain/userRepository'
+import UserUseCase from '../../application/userUseCase'
 import UserController from './userController'
 
 export default class UserRouter {

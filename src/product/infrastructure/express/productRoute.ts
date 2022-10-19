@@ -1,8 +1,8 @@
 import { Router } from 'express'
-import { PersistenceType } from '../../../../shared/infrastructure/persistence'
-import ProductUseCase from '../../../application/productUseCase'
-import ProductRepository from '../../../domain/productRepository'
-import { ProductMockRepository, ProductMongoRepository } from '../../persistence'
+import { PersistenceType } from '../../../shared/infrastructure/persistence'
+import ProductUseCase from '../../application/productUseCase'
+import ProductRepository from '../../domain/productRepository'
+import { ProductMockRepository, ProductMongoRepository } from '../persistence'
 import ProductController from './productController'
 
 export default class ProductRouter {

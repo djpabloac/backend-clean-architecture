@@ -1,6 +1,6 @@
 import { Router } from 'express'
-import UserRoute from '../../../../user/infrastructure/http/express/userRoute'
-import ProductRoute from '../../../../product/infrastructure/http/express/productRoute'
+import UserRoute from '../../../../user/infrastructure/express/userRoute'
+import ProductRoute from '../../../../product/infrastructure/express/productRoute'
 import { PersistenceType } from '../../persistence'
 
 export default class Route {
