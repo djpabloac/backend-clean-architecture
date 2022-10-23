@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import 'dotenv/config'
+import logger from 'morgan'
 import express from 'express'
 import cors from 'cors'
 import { Application } from '../../config'
@@ -12,6 +13,7 @@ const persistenceType: PersistenceType = PersistenceType.Mongo
 
 // Create server
 const app = express()
+app.use(logger('dev'))
 app.use(cors())
 app.use(express.json())
 
