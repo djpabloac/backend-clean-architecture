@@ -3,8 +3,6 @@ import { UserInputEntity } from '../domain/userEntity'
 import UserRepository from '../domain/userRepository'
 import UserValue from '../domain/userValue'
 
-const bcrypt = new Bcrypt()
-
 export default class UserUseCase {
   private readonly userRepository: UserRepository
 
@@ -24,7 +22,7 @@ export default class UserUseCase {
   public save = async (userInput: UserInputEntity) => {
     await this.validate(userInput)
 
-    const passwordHash = bcrypt.createHash(userInput.password)
+    const passwordHash = await Bcrypt.createHash(userInput.password)
     const userValue = new UserValue({ ...userInput, password: passwordHash })
     const userSave = await this.userRepository.save(userValue)
 

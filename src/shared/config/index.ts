@@ -1,7 +1,6 @@
 export const Application = {
   bcrypt: {
-    salt  : 8,
-    secret: process.env.BCRYPT_SECRET ?? ''
+    salt: parseInt(process.env.BCRYPT_SALT ?? '10')
   },
   connection: {
     mock: {
@@ -11,6 +10,10 @@ export const Application = {
       name: process.env.MONGO_NAME ?? '',
       uri : process.env.MONGO_CONNECTION ?? ''
     }
+  },
+  jwt: {
+    expiresIn: process.env.JWT_EXPIRES_IN ?? '2 days',
+    secret   : process.env.JWT_SECRET ?? ''
   },
   port: process.env.PORT ?? '3001'
 }

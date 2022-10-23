@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-console */
 import { connect } from 'mongoose'
 import { Application } from '../../../config'
@@ -9,8 +8,13 @@ export default class ConnectionMongo implements IConnection {
     try {
       await connect(Application.connection.mongodb.uri)
       console.log(Application.connection.mongodb.name, 'Service is available')
-    } catch (error: any) {
-      console.log(Application.connection.mongodb.name, `Error: ${error.message}`)
+    } catch (error: unknown) {
+      const message = error instanceof Error ? error.message : 'An error ocurred the connect to mongo'
+
+      console.log(Application.connection.mongodb.name, `Error: ${message}`)
     }
   }
+
+
+
 }
