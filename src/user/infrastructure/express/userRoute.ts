@@ -4,25 +4,31 @@ import { UserMockRepository, UserMongoRepository } from '../persistence'
 import UserRepository from '../../domain/userRepository'
 import UserUseCase from '../../application/userUseCase'
 import UserController from './userController'
+import { RouteResult } from '../../../shared/infrastructure/express/controller/RouteController'
 
 export default class UserRouter {
-  private static getRoute(userRepository: UserRepository):Router {
+  private static getRoute(userRepository: UserRepository): RouteResult {
     const userUseCase = new UserUseCase(userRepository)
     const userController = new UserController(userUseCase)
 
-    const userRoute = Router()
-    userRoute.get('/:uuid', userController.getById)
-    userRoute.post('', userController.save)
-    userRoute.get('', userController.getAll)
+    const userRoutesPrivate = Router()
+    userRoutesPrivate.get('/:uuid', userController.getById)
+    userRoutesPrivate.get('', userController.getAll)
 
-    return userRoute
+    const userRoutesPublic = Router()
+    userRoutesPrivate.post('', userController.save)
+
+    return {
+      routesPrivate: userRoutesPrivate,
+      routesPublic : userRoutesPublic
+    }
   }
 
-  public static buildRoute(persistenceType: PersistenceType): Router {
-    if(persistenceType === PersistenceType.Mongo)
+  public static buildRoute(persistenceType: PersistenceType): RouteResult {
+    if (persistenceType === PersistenceType.Mongo)
       return this.getRoute(new UserMongoRepository())
 
-    if(persistenceType === PersistenceType.Mock)
+    if (persistenceType === PersistenceType.Mock)
       return this.getRoute(new UserMockRepository())
 
     throw new Error('Invalid persistence type.')

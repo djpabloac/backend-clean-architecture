@@ -5,20 +5,26 @@ import UserRepository from '../../domain/userRepository'
 import AuthUseCase from '../../application/authUseCase'
 import { AuthMockRepository, AuthMongoRepository, UserMockRepository, UserMongoRepository } from '../persistence'
 import AuthController from './authController'
+import { RouteResult } from '../../../shared/infrastructure/express/controller/RouteController'
 
 export default class AuthRouter {
-  private static getRoute(authRepository: AuthRepository, userRepository: UserRepository): Router {
+  private static getRoute(authRepository: AuthRepository, userRepository: UserRepository): RouteResult {
     const authUseCase = new AuthUseCase(authRepository, userRepository)
     const authController = new AuthController(authUseCase)
 
-    const userRoute = Router()
-    userRoute.post('/login', authController.login)
-    userRoute.post('/sign-out', authController.signOut)
+    const authRoutePrivate = Router()
+    authRoutePrivate.post('/login', authController.login)
 
-    return userRoute
+    const authRoutePublic = Router()
+    authRoutePrivate.post('/sign-out', authController.signOut)
+
+    return {
+      routesPrivate: authRoutePrivate,
+      routesPublic : authRoutePublic
+    }
   }
 
-  public static buildRoute(persistenceType: PersistenceType): Router {
+  public static buildRoute(persistenceType: PersistenceType): RouteResult {
     if (persistenceType === PersistenceType.Mongo)
       return this.getRoute(new AuthMongoRepository(), new UserMongoRepository())
 
