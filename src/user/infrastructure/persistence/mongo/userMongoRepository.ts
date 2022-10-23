@@ -15,6 +15,12 @@ export default class UserMongoRepository implements UserRepository {
     return users
   }
 
+  public existsById = async (uuid: string) => {
+    const existsUser = await UserModel.exists({ uuid })
+
+    return Boolean(existsUser)
+  }
+
   public existsByEmail = async (email: string) => {
     const existsUser = await UserModel.exists({ email })
 

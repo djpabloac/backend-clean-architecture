@@ -13,6 +13,10 @@ export default class UserMockRepository implements UserRepository {
     return users
   }
 
+  public existsById = async (uuid: string) => {
+    return users.some((item) => item.uuid === uuid)
+  }
+
   public existsByEmail = async (email: string) => {
     return users.some((item) => item.email === email)
   }

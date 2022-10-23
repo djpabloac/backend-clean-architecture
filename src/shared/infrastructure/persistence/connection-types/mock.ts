@@ -1,5 +1,4 @@
 /* eslint-disable no-console */
-
 import { Application } from '../../../config'
 import IConnection from '../connectionInterface'
 
