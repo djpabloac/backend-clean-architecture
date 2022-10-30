@@ -12,7 +12,7 @@ export const Application = {
     }
   },
   jwt: {
-    expiresIn: process.env.JWT_EXPIRES_IN ?? '2 days',
+    expiresIn: process.env.JWT_EXPIRES_IN ?? '15m',
     secret   : process.env.JWT_SECRET ?? ''
   },
   port: process.env.PORT ?? '3001'

@@ -13,10 +13,11 @@ export default class AuthRouter {
     const authController = new AuthController(authUseCase)
 
     const authRoutePrivate = Router()
-    authRoutePrivate.post('/login', authController.login)
+    authRoutePrivate.post('/sign-out', authController.signOut)
+    authRoutePrivate.post('/validate-token', authController.validateToken)
 
     const authRoutePublic = Router()
-    authRoutePrivate.post('/sign-out', authController.signOut)
+    authRoutePublic.post('/login', authController.login)
 
     return {
       routesPrivate: authRoutePrivate,
