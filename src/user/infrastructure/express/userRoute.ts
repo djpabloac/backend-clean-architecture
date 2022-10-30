@@ -16,7 +16,7 @@ export default class UserRouter {
     userRoutesPrivate.get('', userController.getAll)
 
     const userRoutesPublic = Router()
-    userRoutesPrivate.post('', userController.save)
+    userRoutesPublic.post('', userController.save)
 
     return {
       routesPrivate: userRoutesPrivate,

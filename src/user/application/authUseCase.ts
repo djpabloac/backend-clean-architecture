@@ -40,12 +40,26 @@ export default class AuthUseCase {
     return authToken
   }
 
-  public signOut = async (userId: string): Promise<void> => {
+  public signOut = async (token: string): Promise<void> => {
+    if(!token) throw new Error('Token is required.')
+
+    const tokenDecode = Jwt.decode(token)
+
+    const userId = typeof tokenDecode === 'object' ? tokenDecode?.userId : tokenDecode
+
     if(!userId) throw new Error('UserId is required.')
 
     const existUser = await this.userRepository.existsById(userId)
     if(!existUser) throw new Error('User not found')
 
     await this.authRepository.deleteByUserId(userId)
+  }
+
+  public existsToken = async (token: string): Promise<boolean> => {
+    if(!token) throw new Error('Token is required.')
+
+    const auth = await this.authRepository.getByToken(token)
+
+    return Boolean(auth)
   }
 }
