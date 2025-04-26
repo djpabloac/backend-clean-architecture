@@ -1,4 +1,5 @@
-import jwt, { Secret } from 'jsonwebtoken'
+import ms from 'ms'
+import jwt, { Secret, SignOptions } from 'jsonwebtoken'
 import { Application } from '../../config'
 
 class Jwt {
@@ -20,10 +21,15 @@ class Jwt {
     return tokenValid
   }
 
-  public encode = (userId: string, expiresIn?: string) => {
-    const token = jwt.sign({roles: [], userId}, this.secret, { expiresIn: expiresIn ?? this.expiresIn })
+  public encode = (userId: string, expiresIn?: number) => {
+    const options: SignOptions = {
+      expiresIn: expiresIn ?? this.expiresIn as ms.StringValue
+    };
 
-    return token
+    const payload = { roles: [], userId };
+    const token = jwt.sign(payload, this.secret, options);
+
+    return token;
   }
 }
 
