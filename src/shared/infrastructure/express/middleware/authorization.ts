@@ -36,7 +36,7 @@ export default class Authorization {
 
         const existsToken = await this.authUseCase.existsToken(token)
         if(!existsToken) throw new Error('')
-      } catch (error) {
+      } catch {
         throw new Error('Unauthorized')
       }
 

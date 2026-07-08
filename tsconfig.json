@@ -16,7 +16,8 @@
       "noImplicitReturns": true,
       "skipLibCheck": true,
       "outDir": "./dist",
-      "strict": true
+      "strict": true,
+    "ignoreDeprecations": "6.0"
   },
   "include": [
     "src",

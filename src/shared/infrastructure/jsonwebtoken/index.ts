@@ -24,12 +24,12 @@ class Jwt {
   public encode = (userId: string, expiresIn?: number) => {
     const options: SignOptions = {
       expiresIn: expiresIn ?? this.expiresIn as ms.StringValue
-    };
+    }
 
-    const payload = { roles: [], userId };
-    const token = jwt.sign(payload, this.secret, options);
+    const payload = { roles: [], userId }
+    const token = jwt.sign(payload, this.secret, options)
 
-    return token;
+    return token
   }
 }
 

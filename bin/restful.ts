@@ -1,2 +1,1 @@
-export {}
-require('../src/shared/infrastructure/express')
+import '../src/shared/infrastructure/express'
